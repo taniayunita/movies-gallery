@@ -4,7 +4,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'VIEMO | Watch movie best quality',
+  title: 'VIEMO | Watch movie for FREE',
   description: 'Discover movie from all Country',
 }
 

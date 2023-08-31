@@ -7,7 +7,7 @@ import { Button } from ".";
 
 const Hero = () => {
   const handleScroll = () => {
-    const nextSection = document.getElementById("discover");
+    const nextSection = document.getElementById("top-rated");
 
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
@@ -26,30 +26,12 @@ const Hero = () => {
           Indulge your passion for film as you journey through a world of captivating stories, unforgettable characters, and boundless entertainment
         </p>
         <Button
-        title="Explore Movies"
-        containerStyles="bg-primary-purple w-[300px] text-white rounded-full mt-10"
-        handleClick={handleScroll}
-      />
-      </div>
-      
-      {/* <div className="flex-1 pt-36 padding-x">
-        <h1 className="hero__title">
-          Find your favorite film and watch for FREE!
-        </h1>
-
-        <p className="hero__subtitle">
-          Indulge your passion for film as you journey through a world of captivating stories, unforgettable characters, and boundless entertainment
-        </p>
-
-        <Button
           title="Explore Movies"
           containerStyles="bg-primary-purple w-[300px] text-white rounded-full mt-10"
           handleClick={handleScroll}
         />
-      </div> */}
-      {/* <div className="hero__image-container">
-        <Image src={ImagePoster} alt="poster"/>
-      </div> */}
+      </div>
+
     </div>
   );
 };

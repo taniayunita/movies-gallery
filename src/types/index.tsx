@@ -9,3 +9,13 @@ export interface ButtonProps {
     rightIcon?: string;
     handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface OptionProps {
+    title: string;
+    value: string;
+}
+
+export interface FilterProps {
+    title: string;
+    options: OptionProps[];
+}
