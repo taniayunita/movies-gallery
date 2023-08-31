@@ -16,13 +16,16 @@ export interface OptionProps {
 }
 
 export interface FilterProps {
-    title: string;
     options: OptionProps[];
+  selected: OptionProps | null;
+  onYearChange: (year: OptionProps | null) => void;
+//   onClearFilter: () => void;
+
 }
 
 export interface CardMovieProps {
     title: string;
     vote: number;
     image: string;
-    handleClickMovie? : MouseEventHandler<HTMLButtonElement>
+    onClick : () => void;
 }

@@ -10,37 +10,22 @@ import ImageArrow from '@/assets/image/chevron-up-down.svg'
 import { FilterProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 
-export default function Filter({ title, options }: FilterProps) {
-    const router = useRouter();
-    const [selected, setSelected] = useState(options[0]); // State for storing the selected option
+export default function Filter({ options, selected, onYearChange }: FilterProps) {
+    // const router = useRouter();
+    // const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 
-    // update the URL search parameters and navigate to the new URL
-    const handleUpdateParams = (e: { title: string; value: string }) => {
-        const newPathName = updateSearchParams(title, e.value.toLowerCase());
-      
-        router.push(newPathName);
-      
-        setTimeout(() => {
-          const nextSection = document.getElementById("top-rated");
-          if (nextSection) {
-            nextSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 500);
-      };
+
 
     return (
         <div className='w-fit'>
             <Listbox
-                value={selected}
-                onChange={(e) => {
-                    setSelected(e);// Update the selected option in state
-                    handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
-                }}
+                value={selected || options[0]}
+                onChange={(e) => {onYearChange(e)}}
             >
                 <div className='relative w-fit z-10'>
                     {/* Button for the listbox */}
                     <Listbox.Button className='custom-filter__btn'>
-                        <span className='block truncate'>{selected.title}</span>
+                        <span className='block truncate'>{selected?.title || 'All'}</span>
                         <Image src={ImageArrow} width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
                     </Listbox.Button>
                     {/* Transition for displaying the options */}

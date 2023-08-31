@@ -160,7 +160,7 @@
 
 /* Card Movie */
 .card__movie_container{
-  @apply w-full h-[350px] bg-red-100 rounded-3xl relative;
+  @apply w-full h-[350px] bg-gray-200 rounded-3xl relative;
 }
 .text__movie{
   @apply flex flex-row items-center justify-center;
