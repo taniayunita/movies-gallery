@@ -19,3 +19,10 @@ export interface FilterProps {
     title: string;
     options: OptionProps[];
 }
+
+export interface CardMovieProps {
+    title: string;
+    vote: number;
+    image: string;
+    handleClickMovie? : MouseEventHandler<HTMLButtonElement>
+}

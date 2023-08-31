@@ -24,7 +24,7 @@ export const footerLinks = [
 ];
 
 export const yearsOfMovieRelease = [
-    { title: "Year", value: "" },
+    { title: "All", value: "" },
     { title: "2015", value: "2015" },
     { title: "2016", value: "2016" },
     { title: "2017", value: "2017" },

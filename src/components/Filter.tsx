@@ -8,24 +8,33 @@ import { Listbox, Transition } from "@headlessui/react";
 import ImageArrow from '@/assets/image/chevron-up-down.svg'
 
 import { FilterProps } from "@/types";
+import { updateSearchParams } from "@/utils";
 
-export default function CustomFilter({ title, options }: FilterProps) {
+export default function Filter({ title, options }: FilterProps) {
     const router = useRouter();
     const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 
     // update the URL search parameters and navigate to the new URL
-    // const handleUpdateParams = (e: { title: string; value: string }) => {
-    //     const newPathName = updateSearchParams(title, e.value.toLowerCase());
+    const handleUpdateParams = (e: { title: string; value: string }) => {
+        const newPathName = updateSearchParams(title, e.value.toLowerCase());
+      
+        router.push(newPathName);
+      
+        setTimeout(() => {
+          const nextSection = document.getElementById("top-rated");
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 500);
+      };
 
-    //     router.push(newPathName);
-    // };
     return (
         <div className='w-fit'>
             <Listbox
                 value={selected}
                 onChange={(e) => {
-                    setSelected(e); // Update the selected option in state
-                    // handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
+                    setSelected(e);// Update the selected option in state
+                    handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
                 }}
             >
                 <div className='relative w-fit z-10'>
