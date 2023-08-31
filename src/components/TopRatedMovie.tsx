@@ -28,8 +28,6 @@ const TopRatedMovie = () => {
             const response = await apiMovie.get('/movie/top_rated', {
                 params: { page: currentPage }, // Pass the current page as a query parameter
             });
-
-            console.log("response", response)
             setTopRatedMovie(topRatedMovie => currentPage === 1 ? response.data.results : [...topRatedMovie, ...response.data.results]);
             setLoading(false);
         } catch (error) {
@@ -61,8 +59,6 @@ const TopRatedMovie = () => {
             window.removeEventListener('scroll', loadNextPage);
         };
     }, [])
-
-    console.log("movie" , topRatedMovie)
 
     const handDetilMovie = (movie: any) => {
         router.push(`/movie/${movie}`);

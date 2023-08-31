@@ -17,9 +17,9 @@ export interface OptionProps {
 
 export interface FilterProps {
     options: OptionProps[];
-  selected: OptionProps | null;
-  onYearChange: (year: OptionProps | null) => void;
-//   onClearFilter: () => void;
+    selected: OptionProps | null;
+    onYearChange: (year: OptionProps | null) => void;
+    //   onClearFilter: () => void;
 
 }
 
@@ -27,5 +27,14 @@ export interface CardMovieProps {
     title: string;
     vote: number;
     image: string;
-    onClick : () => void;
+    onClick: () => void;
+}
+
+export interface ImageDetailProps {
+    title: string;
+    vote: number;
+    image: string;
+    overview: string;
+    releaseDate: string;
+    language: string;
 }

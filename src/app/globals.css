@@ -54,9 +54,15 @@
 .hero__title {
   @apply sm:text-base md:text-2xl lg:text-3xl xl:text-5xl font-extrabold text-white;
 }
+.hero__detil {
+  @apply sm:text-base md:text-2xl lg:text-3xl xl:text-5xl font-extrabold text-black;
+}
 
 .hero__subtitle {
   @apply text-[18px] text-black-100 font-light mt-5 text-white;
+}
+.hero__subtitle_detil {
+  @apply text-[18px] text-black-100 font-light mt-5 text-black w-[60%];
 }
 
 .hero__image-container {

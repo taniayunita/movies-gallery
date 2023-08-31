@@ -17,11 +17,11 @@ const Navbar = () => {
         />
       </Link>
 
-      <Button
+      {/* <Button
         title='Sign in'
         btnType='button'
         containerStyles='text-primary-purple font-bold rounded-full bg-white min-w-[130px]'
-      />
+      /> */}
     </nav>
   </header>
   )
