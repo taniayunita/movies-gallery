@@ -20,6 +20,11 @@ const TopRatedMovie = () => {
     const [loading, setLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1);
     const [filteredYear, setFilteredYear] = useState(null); // Start with no filter
+    const [query, setQuery] = useState('');
+
+    const handDleSearch = () => {
+        router.push(`/search/${query.replace(/ /g, "-")}`);
+    };
 
 
     const fetchTopRatedMovie = async () => {
@@ -64,6 +69,10 @@ const TopRatedMovie = () => {
         router.push(`/movie/${movie}`);
     };
 
+    const handleChange = (e : any) => {
+        setQuery(e.target.value)
+    }
+
     const filteredMovies = filteredYear
         ? topRatedMovie.filter((movie: any) => new Date(movie.release_date).getFullYear().toString() === filteredYear.value)
         : topRatedMovie;
@@ -88,7 +97,7 @@ const TopRatedMovie = () => {
         <div className=' padding-x padding-y max-width'>
 
             <div className='home__filters z-10'>
-                <Search />
+                <Search value={query} onChange={handleChange} onSearch={handDleSearch}/>
                 <Filter options={yearsOfMovieRelease} selected={filteredYear} onYearChange={handleYearChange} />
             </div>
             <div className='movie__lists mt-8 max-width'>

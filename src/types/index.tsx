@@ -38,3 +38,9 @@ export interface ImageDetailProps {
     releaseDate: string;
     language: string;
 }
+
+export interface SearchProps {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onSearch: () => void;
+}

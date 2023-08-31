@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image';
 import ImageSearch from '@/assets/image/magnifying-glass.svg'
+import { SearchProps } from '@/types';
 
 
-const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
+const SearchButton = ({ otherClasses, handleSearch }: { otherClasses : string, handleSearch: () => void }) => (
 
-    <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
+    <button type='button' className={`-ml-3 z-10 ${otherClasses}`} onClick={handleSearch}>
         <Image
             src={ImageSearch}
             alt={"search"}
@@ -16,18 +17,19 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
     </button>
 );
 
-const Search = () => {
+const Search = ({onChange, value, onSearch }: SearchProps) => {
+
     return (
         <div className='searchbar__item'>
             <input
                 type='text'
                 name='model'
-                // value={model}
-                // onChange={(e) => setModel(e.target.value)}
+                value={value}
+                onChange={onChange}
                 placeholder='Moving...'
                 className='searchbar__input'
             />
-            <SearchButton otherClasses='' />
+            <SearchButton otherClasses='' handleSearch={onSearch}/>
         </div>
     )
 }
